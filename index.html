@@ -7,45 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Fenêtre de connexion -->
-    <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <h2>Accès à ma liste d'envies</h2>
-            <p>Veuillez entrer le code d'accès :</p>
-            <input type="password" id="access-code" placeholder="Code d'accès">
-            <button onclick="checkAccess()">Valider</button>
-        </div>
+    <h1>Ma Liste d’Envies</h1>
+    <div class="filters">
+        <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="searchWishes()">
+        <select id="category-filter" onchange="displayWishes()">
+            <option value="all">Toutes les catégories</option>
+            <option value="Airsoft">Airsoft</option>
+        </select>
+        <select id="price-filter" onchange="displayWishes()">
+            <option value="all">Tous les prix</option>
+            <option value="low">Moins de 50€</option>
+            <option value="medium">50€ - 200€</option>
+            <option value="high">Plus de 200€</option>
+        </select>
     </div>
-    <!-- Contenu principal -->
-    <div id="main-content" class="hidden">
-        <h1>Ma Liste d’Envies</h1>
-
-
-        <div class="filters">
-    <button onclick="sortByPrice()">Trier par prix (croissant)</button>
-    <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="searchWishes()">
-
-    <select id="category-filter" onchange="displayWishes()">
-        <option value="all">Toutes les catégories</option>
-        <option value="Technologie">Technologie</option>
-        <option value="Livres">Livres</option>
-        <option value="Voyages">Voyages</option>
-    </select>
-    <select id="price-filter" onchange="displayWishes()">
-        <option value="all">Tous les prix</option>
-        <option value="low">Moins de 50€</option>
-        <option value="medium">50€ - 200€</option>
-        <option value="high">Plus de 200€</option>
-    </select>
-    <select id="priority-filter" onchange="displayWishes()">
-        <option value="all">Toutes les priorités</option>
-        <option value="Haute">Haute</option>
-        <option value="Moyenne">Moyenne</option>
-        <option value="Basse">Basse</option>
-    </select>
-</div>
-        <div id="wishlist"></div>
-    </div>
+    <div id="wishlist"></div>
     <script src="script.js"></script>
 </body>
 </html>
