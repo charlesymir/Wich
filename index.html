@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Liste d’Envies</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fenêtre de connexion -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h2>Accès à ma liste d'envies</h2>
+            <p>Veuillez entrer le code d'accès :</p>
+            <input type="password" id="access-code" placeholder="Code d'accès">
+            <button onclick="checkAccess()">Valider</button>
+        </div>
+    </div>
+    <!-- Contenu principal -->
+    <div id="main-content" class="hidden">
+        <h1>Ma Liste d’Envies</h1>
+        <div class="filters">
+            <select id="category-filter">
+                <option value="all">Toutes les catégories</option>
+                <option value="Technologie">Technologie</option>
+                <option value="Livres">Livres</option>
+            </select>
+        </div>
+        <div id="wishlist"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
