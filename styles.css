@@ -1,7 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
 }
 
 .modal {
@@ -18,9 +20,9 @@ body {
 
 .modal-content {
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .hidden {
@@ -28,18 +30,23 @@ body {
 }
 
 .filters {
+    display: flex;
+    gap: 10px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.filters select {
-    margin-right: 10px;
-    padding: 8px;
+.filters select, .filters button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
 }
 
 #wishlist {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
+    gap: 20px;
 }
 
 .wish-card {
@@ -65,3 +72,4 @@ body {
     border-top: 5px solid #9c27b0; /* Violet */
     background-color: #fbf0ff;
 }
+
