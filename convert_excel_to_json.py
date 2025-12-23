@@ -4,7 +4,7 @@ import json
 # Lire le fichier Excel
 df = pd.read_excel('liste-envies.xlsx', engine='openpyxl')
 
-# Nettoyer les lignes vides
+# Supprimer les lignes vides
 df = df.dropna(how='all')
 
 # Convertir en JSON
