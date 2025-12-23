@@ -59,9 +59,36 @@ function displayWishes() {
     });
 }
 
+function searchWishes() {
+    const searchTerm = document.getElementById("search-input").value.toLowerCase();
+    const filteredWishes = wishes.filter(wish =>
+        wish.name.toLowerCase().includes(searchTerm) ||
+        wish.category.toLowerCase().includes(searchTerm)
+    );
+
+    const wishlistElement = document.getElementById("wishlist");
+    wishlistElement.innerHTML = "";
+    filteredWishes.forEach(wish => {
+        const card = document.createElement("div");
+        card.className = `wish-card ${wish.category}`;
+        card.innerHTML = `
+            <h3>${wish.name}</h3>
+            <p><strong>Catégorie :</strong> ${wish.category}</p>
+            <p><strong>Prix :</strong> ${wish.price}€</p>
+        `;
+        wishlistElement.appendChild(card);
+    });
+}
+
+
+function sortByPrice() {
+    wishes.sort((a, b) => a.price - b.price);
+    displayWishes(); // Rafraîchit l'affichage
+}
 
 // Écouter les changements de filtre
 document.getElementById("category-filter").addEventListener("change", displayWishes);
 document.getElementById("price-filter").addEventListener("change", displayWishes);
 document.getElementById("priority-filter").addEventListener("change", displayWishes);
+
 
