@@ -3,7 +3,7 @@ name: Convert Excel to JSON
 on:
   push:
     paths:
-      - 'liste-envies.xlsx'  # Déclencher le workflow quand le fichier Excel est modifié
+      - 'liste-envies.xlsx'
 
 jobs:
   convert:
