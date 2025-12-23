@@ -49,15 +49,19 @@ body {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .wish-card.Technologie {
-    border-top: 5px solid #3498db;
+    border-top: 5px solid #ff5722; /* Orange */
+    background-color: #fff8f0;
 }
-
 .wish-card.Livres {
-    border-top: 5px solid #2ecc71;
+    border-top: 5px solid #4caf50; /* Vert */
+    background-color: #f0fff5;
 }
-
 .wish-card.Voyages {
-    border-top: 5px solid #e67e22;
+    border-top: 5px solid #2196f3; /* Bleu */
+    background-color: #f0f7ff;
+}
+.wish-card.Divers {
+    border-top: 5px solid #9c27b0; /* Violet */
+    background-color: #fbf0ff;
 }
