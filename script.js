@@ -27,17 +27,23 @@ function displayWishes() {
     const priorityFilter = document.getElementById("priority-filter").value;
 
     const filteredWishes = wishes.filter(wish => {
-        return (categoryFilter === "all" || wish.category === categoryFilter) &&
-               (priceFilter === "all" ||
-                (priceFilter === "low" && wish.price < 50) ||
-                (priceFilter === "medium" && wish.price >= 50 && wish.price <= 200) ||
-                (priceFilter === "high" && wish.price > 200)) &&
-               (priorityFilter === "all" || wish.priority === priorityFilter);
+        // Filtre par catégorie
+        const categoryMatch = (categoryFilter === "all") || (wish.category === categoryFilter);
+        // Filtre par prix
+        const priceMatch =
+            (priceFilter === "all") ||
+            (priceFilter === "low" && wish.price < 50) ||
+            (priceFilter === "medium" && wish.price >= 50 && wish.price <= 200) ||
+            (priceFilter === "high" && wish.price > 200);
+        // Filtre par priorité
+        const priorityMatch = (priorityFilter === "all") || (wish.priority === priorityFilter);
+
+        return categoryMatch && priceMatch && priorityMatch;
     });
 
+    // Affichage des résultats
     const wishlistElement = document.getElementById("wishlist");
     wishlistElement.innerHTML = "";
-
     filteredWishes.forEach(wish => {
         const card = document.createElement("div");
         card.className = `wish-card ${wish.category}`;
@@ -47,13 +53,15 @@ function displayWishes() {
             <p><strong>Prix :</strong> ${wish.price}€</p>
             <p><strong>Priorité :</strong> ${wish.priority}</p>
             <p><strong>Statut :</strong> ${wish.status}</p>
-            <a href="${wish.link}" target="_blank">Voir le lien</a>
+            <a href="${wish.link}" target="_blank">Lien</a>
         `;
         wishlistElement.appendChild(card);
     });
 }
 
+
 // Écouter les changements de filtre
 document.getElementById("category-filter").addEventListener("change", displayWishes);
 document.getElementById("price-filter").addEventListener("change", displayWishes);
 document.getElementById("priority-filter").addEventListener("change", displayWishes);
+
