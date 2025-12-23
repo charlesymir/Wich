@@ -3,8 +3,12 @@ const ACCESS_CODE = "1234";
 
 // Données des envies
 const wishes = [
-    { id: 1, name: "Drone DJI Mavic 3", category: "Technologie", price: 1500, priority: "Haute", link: "#", status: "En attente" },
-    { id: 2, name: "Le Prince", category: "Livres", price: 20, priority: "Moyenne", link: "#", status: "Acheté" },
+    { id: 1, name: "Drone DJI Mavic 3", category: "Technologie", price: 1500, priority: "Haute", link: "https://exemple.com/drone", status: "En attente" },
+    { id: 2, name: "Le Prince", category: "Livres", price: 20, priority: "Moyenne", link: "https://exemple.com/livre", status: "Acheté" },
+    { id: 3, name: "Voyage à Bali", category: "Voyages", price: 1200, priority: "Haute", link: "https://exemple.com/voyage", status: "En attente" },
+    { id: 4, name: "Casque Bose QC45", category: "Technologie", price: 350, priority: "Basse", link: "https://exemple.com/casque", status: "En attente" },
+];
+
     // Ajoutez d'autres envies ici
 ];
 
@@ -90,5 +94,6 @@ function sortByPrice() {
 document.getElementById("category-filter").addEventListener("change", displayWishes);
 document.getElementById("price-filter").addEventListener("change", displayWishes);
 document.getElementById("priority-filter").addEventListener("change", displayWishes);
+
 
 
