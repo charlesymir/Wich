@@ -23,6 +23,7 @@
 
         <div class="filters">
     <button onclick="sortByPrice()">Trier par prix (croissant)</button>
+    <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="searchWishes()">
 
     <select id="category-filter" onchange="displayWishes()">
         <option value="all">Toutes les catégories</option>
