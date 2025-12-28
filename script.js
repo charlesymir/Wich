@@ -7,15 +7,6 @@ let wishes = [
         site: "Gun-Evasion",
         link: "https://air-soft.gun-evasion.com/cartouches-de-co2-12g-powair-tarifs-degressifs.html",
         image: "https://air-soft.gun-evasion.com/upload/image/cartouches-de-co2-12g-powair---tarifs-degressifs-p-image-46130-grande.jpg"
-    };
-    
-    {
-        name: "Cartouche",
-        category: "Airsoft",
-        price: 8,
-        site: "Gun-Evasion",
-        link: "https://air-soft.gun-evasion.com/cartouches-de-co2-12g-powair-tarifs-degressifs.html",
-        image: "https://air-soft.gun-evasion.com/upload/image/cartouches-de-co2-12g-powair---tarifs-degressifs-p-image-46130-grande.jpg"
     }
 ];
 
@@ -95,6 +86,7 @@ function addWish() {
 
 // Affichage initial
 displayWishes(wishes);
+
 
 
 
