@@ -8,20 +8,45 @@
 </head>
 <body>
     <h1>Ma Liste d’Envies</h1>
+
+    <!-- Filtres -->
     <div class="filters">
-        <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="searchWishes()">
-        <select id="category-filter" onchange="displayWishes()">
+        <input type="text" id="search-input" placeholder="Rechercher un produit..." onkeyup="filterWishes()">
+        <select id="category-filter" onchange="filterWishes()">
             <option value="all">Toutes les catégories</option>
+            <option value="Technologie">Technologie</option>
+            <option value="Livres">Livres</option>
             <option value="Airsoft">Airsoft</option>
         </select>
-        <select id="price-filter" onchange="displayWishes()">
+        <select id="price-filter" onchange="filterWishes()">
             <option value="all">Tous les prix</option>
             <option value="low">Moins de 50€</option>
             <option value="medium">50€ - 200€</option>
             <option value="high">Plus de 200€</option>
         </select>
+        <select id="site-filter" onchange="filterWishes()">
+            <option value="all">Tous les sites</option>
+            <option value="Amazon">Amazon</option>
+            <option value="Gun-Evasion">Gun-Evasion</option>
+        </select>
+        <button onclick="sortByPrice()">Trier par prix (croissant)</button>
     </div>
-    <div id="wishlist"></div>
+
+    <!-- Liste des envies -->
+    <div id="wishlist" class="wishlist"></div>
+
+    <!-- Formulaire pour ajouter une envie -->
+    <div class="add-wish">
+        <h2>Ajouter une envie</h2>
+        <input type="text" id="wish-name" placeholder="Nom du produit">
+        <input type="text" id="wish-category" placeholder="Catégorie">
+        <input type="number" id="wish-price" placeholder="Prix (€)">
+        <input type="text" id="wish-site" placeholder="Site (ex: Amazon)">
+        <input type="text" id="wish-link" placeholder="Lien vers le produit">
+        <input type="text" id="wish-image" placeholder="URL de l'image">
+        <button onclick="addWish()">Ajouter</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
