@@ -46,10 +46,10 @@ function clearForm() {
 
 // Sauvegarder sur GitHub (via une URL spéciale)
 function saveToGitHub() {
-    const githubSaveUrl = `https://api.github.com/repos/votre-utilisateur/ma-liste-envies/contents/wishlist.json`;
-    const token = prompt("Entrez votre token GitHub (nécessaire pour écrire) :");
+    const token = prompt("Entrez votre token GitHub :");
+    if (!token) return;
 
-    fetch(githubSaveUrl, {
+    fetch(`https://api.github.com/repos/votre-utilisateur/ma-liste-envies/contents/wishlist.json`, {
         method: 'PUT',
         headers: {
             'Authorization': `token ${token}`,
@@ -57,10 +57,43 @@ function saveToGitHub() {
         },
         body: JSON.stringify({
             message: 'Mise à jour de la liste d\'envies',
-            content: btoa(JSON.stringify(wishes, null, 2))
+            content: btoa(JSON.stringify(wishes, null, 2)),
+            sha: currentSha // Ajout du SHA pour éviter les conflits
         })
     })
-    .then(response => response.json())
-    .then(data => alert("Sauvegardé avec succès !"))
-    .catch(error => alert("Erreur : " + error.message));
+    .then(response => {
+        if (!response.ok) throw new Error("Erreur lors de la sauvegarde");
+        return response.json();
+    })
+    .then(data => {
+        alert("Sauvegardé avec succès ! La page va recharger les données.");
+        // Recharger les données depuis GitHub après la sauvegarde
+        fetch('wishlist.json')
+            .then(response => response.json())
+            .then(updatedWishes => {
+                wishes = updatedWishes;
+                displayAdminWishes(); // Rafraîchir l'affichage
+            });
+    })
+    .catch(error => {
+        console.error("Erreur détaillée :", error);
+        alert("Échec de la sauvegarde. Voir la console pour plus de détails.");
+    });
 }
+
+// Ajoutez cette variable globale pour stocker le SHA du fichier
+let currentSha;
+
+// Chargez le SHA lors du chargement initial des données
+fetch('wishlist.json')
+    .then(response => response.json())
+    .then(data => {
+        wishes = data;
+        displayAdminWishes();
+        // Récupérer le SHA du fichier (nécessaire pour les mises à jour)
+        return fetch(`https://api.github.com/repos/votre-utilisateur/ma-liste-envies/contents/wishlist.json`);
+    })
+    .then(response => response.json())
+    .then(data => {
+        currentSha = data.sha; // Stocker le SHA pour les futures mises à jour
+    });
