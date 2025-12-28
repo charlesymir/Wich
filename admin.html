@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Liste d’Envies</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Gestion des Envies</h1>
+    <div class="add-wish">
+        <input type="text" id="wish-name" placeholder="Nom">
+        <input type="text" id="wish-category" placeholder="Catégorie">
+        <input type="number" id="wish-price" placeholder="Prix (€)">
+        <input type="text" id="wish-site" placeholder="Site">
+        <input type="text" id="wish-link" placeholder="Lien">
+        <input type="text" id="wish-image" placeholder="URL de l'image">
+        <button onclick="addWish()">Ajouter</button>
+    </div>
+    <div id="admin-wishlist"></div>
+    <button onclick="saveToGitHub()">Sauvegarder sur GitHub</button>
+    <script src="admin-script.js"></script>
+</body>
+</html>
